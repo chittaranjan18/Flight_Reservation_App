@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+   <h2 style="color:blue"> List Of Flights</h2>
+   <div class="container my-5  col-md-6">
+    <table class="table table-striped table-haver" border="2px">
+  <thead>
+    <tr>
+     
+      <th scope="col">OPERATING_AIRLINES</th>
+      <th scope="col">DEPARTURE_CITY</th>
+      <th scope="col">ARRIVAL_CITY</th>
+      <th scope="col">ESTIMATED_DEPARTURE_TIME</th>
+      <th scope="col">Select Flight</th>
+    </tr>
+  </thead>
+  <tbody>
+	   <tr th:each="flight : ${findFlights}">
+      <td th:text="${flight.operatingAirlines}"></td>
+      <td th:text="${flight.departureCity}"></td>
+      <td th:text="${flight.arrivalCity}"></td>
+      <td th:text="${flight.estimatedDepartureTime}"></td>
+      <td><a th:href="@{/showcompleteReservation(flightId=${flight.id})}">Select</a></td>      
+    </tr>
+     
+  </tbody>
+</table>
+  </div>
+</body>
+</html>

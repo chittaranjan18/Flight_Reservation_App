@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	body{
+		background-image: url('/images/login.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	.container{
+		background-color: aqua;
+		margin-top: 300px;
+		margin-left: 700px;
+		margin-right: 300px;
+	}
+</style>
+</head>
+<body>
+	
+	<div class="container text-center">
+		<h1 th:text="${error}"></h1>
+   <h2 style="color:red">Welcome to Login Page</h2>
+   <form action="verifyLogin" method="post">
+	<pre>
+   USERNAME:<input type="text" name="emailId">
+   PASSWORD:<input type="password" name="password">
+   <input type="submit" value="login">
+   </pre>
+   </form>
+   </div>
+</body>
+</html>

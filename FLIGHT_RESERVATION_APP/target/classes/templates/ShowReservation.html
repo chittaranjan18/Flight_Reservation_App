@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	
+	table{
+		background-color: aqua;
+	}
+</style>
+</head>
+<body>
+   <h2>Search Flight Details</h2>
+   <div class="container">
+	   <table class="table table-striped table-haver" border="2px">
+  <thead>
+    <tr>
+     
+      <th scope="col">Flight Number</th>
+      <th scope="col">Operating Airlines</th>
+      <th scope="col">Departure City</th>
+      <th scope="col">ARRIVAL_CITY</th>
+      <th scope="col">Departure Date</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+	   <tr th:each="flight : ${flight}">
+      <td th:text="${flight.flightNumber}"></td>
+      <td th:text="${flight.operatingAirlines}"></td>
+      <td th:text="${flight.departureCity}"></td>
+      <td th:text="${flight.arrivalCity}"></td>
+      <td th:text="${flight.dateOfDeparture}"></td>
+    </tr>
+     
+  </tbody>
+</table>
+	<h2>Enter Passenger Details</h2> 
+	<form action="confReservation" method="post">
+		<pre>
+		FIRST NAME :<input type="text" name="firstName">
+		LAST NAME  :<input type="text" name="lastName">
+		MIDDLE NAME:<input type="text" name="middleName">
+		EMAIL      :<input type="text" name="email">
+		PHONE      :<input type="text" name="phone">
+		<input type="hidden" name="flightId" th:value="${flight.id}">
+		<br><br>
+		<h2>Enter the payment Details</h2>
+		NameOnTheCard:<input type="text" name="cardHolderName">
+		Card Number  :<input type="text" name="cardNumber">
+		CardNumber   :<input type="text" name="cardNumber">
+		CVV          :<input type="text" name="cvvCode">
+		Expiry Date  :<input type="text" name="expirationDate"><br>
+	<input type="submit" value="submit">
+	</pre>
+	</form>
+</body>
+</html>
